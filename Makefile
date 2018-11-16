@@ -22,7 +22,7 @@ NAME	=	my_hunter
 all:	$(NAME)
 
 $(NAME):
-	$(CC) $(MAIN) $(SRC) $(CSFML) $(CFLAGS)
+	$(CC) -o $(NAME) $(MAIN) $(SRC) $(CSFML) $(CFLAGS)
 
 clean:	;
 
