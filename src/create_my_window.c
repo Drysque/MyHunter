@@ -14,5 +14,6 @@ sfRenderWindow *create_my_window(int width, int height, int bpp)
 
     window = sfRenderWindow_create(video_mode, "My Hunter",
         sfResize | sfClose, NULL);
+    sfRenderWindow_setMouseCursorVisible(window, sfFalse);
     return (window);
 }

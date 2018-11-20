@@ -13,11 +13,10 @@ CFLAGS	=	-I./include/
 
 SRC	=	src/my_hunter.c	\
 		src/create_my_window.c	\
-		src/create_my_background.c	\
-		src/create_my_bird.c	\
-		src/init_my_bird.c	\
+		src/create_my_ressources.c	\
 		src/update_my_bird.c	\
-		src/move_bird_rect.c	\
+		src/update_my_cursor.c	\
+		src/check_shot.c	\
 		src/destroy_my_ressources.c	\
 		src/close_my_window.c
 

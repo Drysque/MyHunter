@@ -6,12 +6,19 @@
 */
 
 #include "hunter.h"
-void move_bird_rect(sfIntRect *bird_spr_rect, int offset, int max_value);
+
+void move_bird_rect(sfIntRect *bird_spr_rect, int offset, int max_value)
+{
+    if (bird_spr_rect->left + offset >= max_value)
+        bird_spr_rect->left = 0;
+    else
+        bird_spr_rect->left = bird_spr_rect->left + offset;
+}
 
 void update_my_bird(texture_t *tex, bird_clock_t *b_clock, bird_mouv_t *b_mouv)
 {
     sfSprite_move(tex->bird_spr, b_mouv->bird_vect);//move the bird
-   if (sfSprite_getPosition(tex->bird_spr).x < 1920) {//check x
+    if (sfSprite_getPosition(tex->bird_spr).x < 1920) {//check x
         b_clock->bird_time = sfClock_getElapsedTime(b_clock->bird_clock);
         b_clock->bird_sec = b_clock->bird_time.microseconds / 100000.0;
         if (b_clock->bird_sec > 1.0) {
