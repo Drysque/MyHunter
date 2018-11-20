@@ -9,6 +9,8 @@
 #define HUNTER_H_
 
 #include <SFML/Graphics.h>
+#include <stdlib.h>
+#include <unistd.h>
 
 typedef struct texture_s
 {
