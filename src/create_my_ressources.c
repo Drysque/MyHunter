@@ -36,7 +36,7 @@ void create_my_explosion(texture_t *tex)
     sfSprite_setTexture(tex->expl_spr, tex->expl_tex, sfTrue);
 }
 
-void init_my_bird(bird_mouv_t *b_mouv, bird_clock_t *b_clock)
+void init_my_bird(bird_mouv_t *b_mouv)
 {
     b_mouv->bird_spr_rect.top = 0;
     b_mouv->bird_spr_rect.left = 0;
@@ -46,7 +46,7 @@ void init_my_bird(bird_mouv_t *b_mouv, bird_clock_t *b_clock)
     b_mouv->bird_vect.y = 0.5;
     b_mouv->out_of_bound.x = 2000;
     b_mouv->out_of_bound.y = 2000;
-    b_clock->bird_clock = sfClock_create();
+    b_mouv->bird_clock = sfClock_create();
     b_mouv->position.x = 0.0;
     b_mouv->status = 0;
     srand(time(NULL));
@@ -62,13 +62,24 @@ void init_my_expl(texture_t *tex, bird_mouv_t *b_mouv, expl_clock_t *e_clock)
     sfSprite_setPosition(tex->expl_spr, b_mouv->out_of_bound);
 }
 
-void create_my_ressources(texture_t *tex, bird_mouv_t *b_mouv,
-    bird_clock_t *b_clock, expl_clock_t *e_clock)
+void create_my_sound(sound_t *sound)
 {
+    sound->shot_blast = sfMusic_createFromFile("./sound_src/SG.wav");
+    sound->mii = sfMusic_createFromFile("./sound_src/Mii.ogg");
+    sfMusic_play(sound->mii);
+    sfMusic_setLoop(sound->mii, sfTrue);
+    sfMusic_setVolume(sound->shot_blast, 10.0);
+}
+
+void create_my_ressources(texture_t *tex, sound_t *sound,
+    bird_mouv_t *b_mouv, expl_clock_t *e_clock)
+{
+    tex->window = create_my_window(1920, 1080, 32);
     create_my_background(tex);
     create_my_bird(tex);
     create_my_cursor(tex);
     create_my_explosion(tex);
-    init_my_bird(b_mouv, b_clock);
+    create_my_sound(sound);
+    init_my_bird(b_mouv);
     init_my_expl(tex, b_mouv, e_clock);
 }

@@ -5,7 +5,7 @@
 ## Makefile for My Hunter
 ##
 
-CC	=	gcc
+CC	=	gcc -g3
 
 RMF     =       rm -f
 
@@ -22,7 +22,7 @@ SRC	=	src/my_hunter.c	\
 
 MAIN	=	src/main.c
 
-CSFML	=	-l csfml-graphics -l csfml-system -l csfml-window
+CSFML	=	-l csfml-graphics -l csfml-system -l csfml-window -l csfml-audio
 
 NAME	=	my_hunter
 

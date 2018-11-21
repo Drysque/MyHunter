@@ -47,11 +47,11 @@ void animate_expl(texture_t *tex, bird_mouv_t *b_mouv, expl_clock_t *e_mouv)
     sfSprite_setTextureRect(tex->expl_spr, e_mouv->expl_spr_rect);
 }
 
-void check_shot(sfRenderWindow *window, texture_t *tex,
-    bird_mouv_t *b_mouv, expl_clock_t *e_mouv)
+void check_shot(texture_t *tex, bird_mouv_t *b_mouv,
+    expl_clock_t *e_mouv, sound_t *sound)
 {
-    int mousex = sfMouse_getPositionRenderWindow(window).x;
-    int mousey = sfMouse_getPositionRenderWindow(window).y;
+    int mousex = sfMouse_getPositionRenderWindow(tex->window).x;
+    int mousey = sfMouse_getPositionRenderWindow(tex->window).y;
     int birdx = sfSprite_getPosition(tex->bird_spr).x;
     int birdy = sfSprite_getPosition(tex->bird_spr).y;
 
@@ -63,8 +63,9 @@ void check_shot(sfRenderWindow *window, texture_t *tex,
         b_mouv->position.x = 0.0;
         switch_status(tex, b_mouv);
         b_mouv->status = rand() % 3;
-        b_mouv->bird_vect.x += 0.04;
+        b_mouv->bird_vect.x += 0.08;
         sfSprite_setPosition(tex->expl_spr, b_mouv->click_coor);
         e_mouv->expl_spr_rect.left = 0;
+        sfMusic_play(sound->shot_blast);
     }
 }
