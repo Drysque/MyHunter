@@ -16,6 +16,28 @@ void move_bird_rect(sfIntRect *bird_spr_rect, int offset, int max_value)
         bird_spr_rect->left = bird_spr_rect->left + offset;
 }
 
+void failure_manage(texture_t *tex, bird_mouv_t *b_mouv, sound_t *sound)
+{
+    sfMusic_play(sound->roblox);
+    b_mouv->life -= 1;
+    b_mouv->position.x = -300.0;
+    b_mouv->bird_vect.x = 1.7;
+    b_mouv->status = rand() % 3;
+    switch_status(tex, b_mouv);
+    if (b_mouv->life == 2)
+        sfSprite_setPosition(tex->heart3_spr, b_mouv->out_of_bound);
+    if (b_mouv->life == 1)
+        sfSprite_setPosition(tex->heart2_spr, b_mouv->out_of_bound);
+    if (b_mouv->life == 0) {
+        sfMusic_stop(sound->mii);
+        sfMusic_stop(sound->roblox);
+        b_mouv->bird_vect.x = 0.0;
+        sfSprite_setPosition(tex->over_spr, b_mouv->origine);
+        sfMusic_play(sound->violin);
+        write(1, "Better luck next time\n", 23);
+    }
+}
+
 void update_my_bird(texture_t *tex, bird_mouv_t *b_mouv, sound_t *sound)
 {
     sfSprite_move(tex->bird_spr, b_mouv->bird_vect);
@@ -28,16 +50,6 @@ void update_my_bird(texture_t *tex, bird_mouv_t *b_mouv, sound_t *sound)
         }
         sfSprite_setTextureRect(tex->bird_spr, b_mouv->bird_spr_rect);
     } else {
-        b_mouv->life -= 1;
-        sfMusic_play(sound->roblox);
-        b_mouv->position.x = -300.0;
-        b_mouv->bird_vect.x = 1.7;
-        switch_status(tex, b_mouv);
-        b_mouv->status = rand() % 3;
-        if (b_mouv->life == 0) {
-            write(1, "Better luck next time\n", 23);
-            destroy_my_ressources(tex, sound);
-            exit(0);
-        }
+        failure_manage(tex, b_mouv, sound);
     }
 }

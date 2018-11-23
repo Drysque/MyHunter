@@ -14,6 +14,7 @@ CFLAGS	=	-I./include/
 SRC	=	src/my_hunter.c	\
 		src/create_my_window.c	\
 		src/create_my_ressources.c	\
+		src/init_my_ressources.c	\
 		src/update_my_bird.c	\
 		src/update_my_cursor.c	\
 		src/check_shot.c	\

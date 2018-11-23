@@ -18,10 +18,16 @@ typedef struct texture_s
     sfRenderWindow *window;
     sfTexture *back_tex;
     sfSprite *back_spr;
+    sfTexture *over_tex;
+    sfSprite *over_spr;
     sfTexture *bird_tex;
     sfSprite *bird_spr;
     sfTexture *expl_tex;
     sfSprite *expl_spr;
+    sfTexture *heart_tex;
+    sfSprite *heart1_spr;
+    sfSprite *heart2_spr;
+    sfSprite *heart3_spr;
     sfTexture *mouse_tex;
     sfSprite *mouse_spr;
     sfVector2f mouse_coor;
@@ -32,6 +38,7 @@ typedef struct sound_s
     sfMusic *shot_blast;
     sfMusic *mii;
     sfMusic *roblox;
+    sfMusic *violin;
 } sound_t;
 
 typedef struct bird_mouv_s
@@ -39,6 +46,7 @@ typedef struct bird_mouv_s
     sfIntRect bird_spr_rect;
     sfVector2f bird_vect;
     sfVector2f position;
+    sfVector2f origine;
     sfVector2f click_coor;
     sfVector2f out_of_bound;
     int status;
