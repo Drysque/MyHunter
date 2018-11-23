@@ -31,6 +31,7 @@ typedef struct sound_s
 {
     sfMusic *shot_blast;
     sfMusic *mii;
+    sfMusic *roblox;
 } sound_t;
 
 typedef struct bird_mouv_s
@@ -41,6 +42,7 @@ typedef struct bird_mouv_s
     sfVector2f click_coor;
     sfVector2f out_of_bound;
     int status;
+    int life;
     sfClock *bird_clock;
     sfTime bird_time;
     float bird_sec;

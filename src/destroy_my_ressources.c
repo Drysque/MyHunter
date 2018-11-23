@@ -21,4 +21,5 @@ void destroy_my_ressources(texture_t *tex, sound_t *sound)
     sfMusic_stop(sound->mii);
     sfMusic_destroy(sound->mii);
     sfMusic_destroy(sound->shot_blast);
+    sfMusic_destroy(sound->roblox);
 }

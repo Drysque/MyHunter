@@ -26,7 +26,7 @@ void my_hunter(void)
         check_shot(tex, b_mouv, e_clock, sound);
         update_my_cursor(tex);
         sfRenderWindow_display(tex->window);
+        close_my_window(tex->window, event);
     }
-    close_my_window(tex->window, event);
     destroy_my_ressources(tex, sound);
 }

@@ -49,6 +49,7 @@ void init_my_bird(bird_mouv_t *b_mouv)
     b_mouv->bird_clock = sfClock_create();
     b_mouv->position.x = 0.0;
     b_mouv->status = 0;
+    b_mouv->life = 3;
     srand(time(NULL));
 }
 
@@ -66,6 +67,7 @@ void create_my_sound(sound_t *sound)
 {
     sound->shot_blast = sfMusic_createFromFile("./sound_src/SG.wav");
     sound->mii = sfMusic_createFromFile("./sound_src/Mii.ogg");
+    sound->roblox = sfMusic_createFromFile("./sound_src/Roblox.ogg");
     sfMusic_play(sound->mii);
     sfMusic_setLoop(sound->mii, sfTrue);
     sfMusic_setVolume(sound->shot_blast, 10.0);
