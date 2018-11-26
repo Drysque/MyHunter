@@ -12,10 +12,12 @@
 #include <SFML/Audio.h>
 #include <stdlib.h>
 #include <unistd.h>
+#include <stdbool.h>
 
 typedef struct texture_s
 {
     sfRenderWindow *window;
+    sfSprite *start_spr;
     sfTexture *back_tex;
     sfSprite *back_spr;
     sfTexture *over_tex;

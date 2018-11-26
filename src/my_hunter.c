@@ -18,13 +18,15 @@ void draw_my_sprites(texture_t *tex)
     sfRenderWindow_drawSprite(tex->window, tex->heart2_spr, NULL);
     sfRenderWindow_drawSprite(tex->window, tex->heart3_spr, NULL);
     sfRenderWindow_drawSprite(tex->window, tex->over_spr, NULL);
+    sfRenderWindow_drawSprite(tex->window, tex->start_spr, NULL);
 }
 
-int wait_for_start(int start_status)
+int wait_for_start(int start_status, texture_t *tex, bird_mouv_t *b_mouv)
 {
     while (start_status == 0)
         if (sfKeyboard_isKeyPressed(sfKeySpace))
             start_status = 1;
+    sfSprite_setPosition(tex->start_spr, b_mouv->out_of_bound);
     return (start_status);
 }
 
@@ -52,7 +54,7 @@ void my_hunter(void)
         sfRenderWindow_display(tex->window);
         close_my_window(tex->window, event);
         if (start_status == 0)
-            start_status = wait_for_start(start_status);
+            start_status = wait_for_start(start_status, tex, b_mouv);
     }
     destroy_my_ressources(tex, sound);
 }

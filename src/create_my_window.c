@@ -26,6 +26,8 @@ void create_my_background(texture_t *tex)
     tex->back_tex = sfTexture_createFromFile("./image_src/XP-pix.jpg", NULL);
     tex->back_spr = sfSprite_create();
     sfSprite_setTexture(tex->back_spr, tex->back_tex, sfTrue);
+    tex->start_spr = sfSprite_create();
+    sfSprite_setTexture(tex->start_spr, tex->back_tex, sfTrue);
 }
 
 void create_my_over(texture_t *tex, bird_mouv_t *b_mouv)

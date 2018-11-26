@@ -7,7 +7,7 @@
 
 void my_hunter(void);
 
-int main(int ac, char **av, char **env)
+int main()
 {
     my_hunter();
     return (0);

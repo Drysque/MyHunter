@@ -12,6 +12,7 @@ void destroy_my_textures(texture_t *tex)
     sfRenderWindow_destroy(tex->window);
     sfTexture_destroy(tex->back_tex);
     sfSprite_destroy(tex->back_spr);
+    sfSprite_destroy(tex->start_spr);
     sfTexture_destroy(tex->over_tex);
     sfSprite_destroy(tex->over_spr);
     sfTexture_destroy(tex->bird_tex);
