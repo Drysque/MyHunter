@@ -24,6 +24,7 @@ void my_usage(int ac, char **av)
     char bird[] = "\tPress left click to hunt the birds\n";
     char difficulty[] = "\tThe more you kill, the harder it gets!\n";
     char failure[] = "\tIf you fail to kill one, you loose a life...\n";
+    char quit[] = "\tPress Escape to quit\n";
     char fun[] = "\tHave fun!\n";
 
     if (ac != 1) {
@@ -32,6 +33,7 @@ void my_usage(int ac, char **av)
         write(1, bird, my_strlen(bird));
         write(1, difficulty, my_strlen(difficulty));
         write(1, failure, my_strlen(failure));
+        write(1, quit, my_strlen(quit));
         write(1, fun, my_strlen(fun));
         exit (0);
     }
