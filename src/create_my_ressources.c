@@ -8,13 +8,6 @@
 #include <SFML/Graphics.h>
 #include <time.h>
 #include "hunter.h"
-void init_my_bird(bird_mouv_t *b_mouv);
-void init_my_expl(texture_t *tex, bird_mouv_t *b_mouv, expl_clock_t *e_clock);
-void init_my_heart(texture_t *tex, bird_mouv_t *b_mouv);
-sfRenderWindow *create_my_window(int width, int height, int bpp);
-void create_my_background(texture_t *tex);
-void create_my_over(texture_t *tex, bird_mouv_t *b_mouv);
-void create_my_cursor(texture_t *tex);
 
 void create_my_bird(texture_t *tex)
 {
@@ -25,7 +18,7 @@ void create_my_bird(texture_t *tex)
 
 void create_my_explosion(texture_t *tex)
 {
-    tex->expl_tex = sfTexture_createFromFile("./image_src/expl_sprS.png", NULL);
+    tex->expl_tex = sfTexture_createFromFile("./image_src/expl_S.png", NULL);
     tex->expl_spr = sfSprite_create();
     sfSprite_setTexture(tex->expl_spr, tex->expl_tex, sfTrue);
 }

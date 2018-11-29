@@ -12,6 +12,7 @@ RMF     =       rm -f
 CFLAGS	=	-I./include/
 
 SRC	=	src/my_hunter.c	\
+		src/my_usage.c	\
 		src/create_my_window.c	\
 		src/create_my_ressources.c	\
 		src/init_my_ressources.c	\

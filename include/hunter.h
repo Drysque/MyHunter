@@ -32,7 +32,6 @@ typedef struct texture_s
     sfSprite *heart3_spr;
     sfTexture *mouse_tex;
     sfSprite *mouse_spr;
-    sfVector2f mouse_coor;
 } texture_t;
 
 typedef struct sound_s
@@ -50,6 +49,7 @@ typedef struct bird_mouv_s
     sfVector2f position;
     sfVector2f origine;
     sfVector2f click_coor;
+    sfVector2f mouse_coor;
     sfVector2f out_of_bound;
     int status;
     int life;
@@ -67,13 +67,19 @@ typedef struct expl_clock_s
 } expl_clock_t;
 
 sfRenderWindow *create_my_window(int width, int height, int bpp);
-void check_shot(texture_t *tex, bird_mouv_t *b_mouv,
-    expl_clock_t *e_mouv, sound_t *sound);
-void update_my_bird(texture_t *tex, bird_mouv_t *b_mouv, sound_t *sound);
-void update_my_cursor(texture_t *tex);
-void close_my_window(sfRenderWindow *window, sfEvent event);
-void destroy_my_ressources(texture_t *tex, sound_t *sound);
+void create_my_background(texture_t *tex);
+void create_my_over(texture_t *tex, bird_mouv_t *b_mouv);
+void create_my_cursor(texture_t *tex);
 void create_my_ressources(texture_t *tex, sound_t *sound,
     bird_mouv_t *b_mouv, expl_clock_t *e_clock);
+void init_my_bird(bird_mouv_t *b_mouv);
+void init_my_expl(texture_t *tex, bird_mouv_t *b_mouv, expl_clock_t *e_clock);
+void init_my_heart(texture_t *tex, bird_mouv_t *b_mouv);
+void update_my_bird(texture_t *tex, bird_mouv_t *b_mouv, sound_t *sound);
+void update_my_cursor(texture_t *tex, bird_mouv_t *b_mouv);
+void check_shot(texture_t *tex, bird_mouv_t *b_mouv,
+    expl_clock_t *e_mouv, sound_t *sound);
+void destroy_my_ressources(texture_t *tex, sound_t *sound);
+void close_my_window(sfRenderWindow *window, sfEvent event);
 
 #endif

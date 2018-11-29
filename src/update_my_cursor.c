@@ -7,9 +7,9 @@
 
 #include "hunter.h"
 
-void update_my_cursor(texture_t *tex)
+void update_my_cursor(texture_t *tex, bird_mouv_t *b_mouv)
 {
-    tex->mouse_coor.x = sfMouse_getPositionRenderWindow(tex->window).x - 25;
-    tex->mouse_coor.y = sfMouse_getPositionRenderWindow(tex->window).y - 25;
-    sfSprite_setPosition(tex->mouse_spr, tex->mouse_coor);
+    b_mouv->mouse_coor.x = sfMouse_getPositionRenderWindow(tex->window).x - 25;
+    b_mouv->mouse_coor.y = sfMouse_getPositionRenderWindow(tex->window).y - 25;
+    sfSprite_setPosition(tex->mouse_spr, b_mouv->mouse_coor);
 }

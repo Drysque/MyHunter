@@ -50,7 +50,7 @@ void my_hunter(void)
         draw_my_sprites(tex);
         update_my_bird(tex, b_mouv, sound);
         check_shot(tex, b_mouv, e_clock, sound);
-        update_my_cursor(tex);
+        update_my_cursor(tex, b_mouv);
         sfRenderWindow_display(tex->window);
         close_my_window(tex->window, event);
         if (start_status == 0)
