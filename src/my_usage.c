@@ -21,7 +21,7 @@ void my_usage(int ac, char **av)
 {
     char usage[] = "USAGE: \n\t./my_hunter\n\n";
     char description[] = "DESCRIPTION:\n\tPress SPACE to start\n";
-    char bird[] = "\tPress right click to hunt the birds\n";
+    char bird[] = "\tPress left click to hunt the birds\n";
     char difficulty[] = "\tThe more you kill, the harder it gets!\n";
     char failure[] = "\tIf you fail to kill one, you loose a life...\n";
     char fun[] = "\tHave fun!\n";
