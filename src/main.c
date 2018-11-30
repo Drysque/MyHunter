@@ -6,11 +6,12 @@
 */
 
 void my_hunter(void);
-void check_args(int ac, char **av, char **env);
+int check_args(int ac, char **av, char **env);
 
 int main(int ac, char **av, char **env)
 {
-    check_args(ac, av, env);
+    if (check_args(ac, av, env) != 0)
+        return (84);
     my_hunter();
     return (0);
 }

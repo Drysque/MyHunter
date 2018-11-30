@@ -17,7 +17,7 @@ static int my_strlen(char const *str)
     return (len);
 }
 
-static void my_usage(int ac, char **av)
+static int my_usage(int ac, char **av)
 {
     char usage[] = "USAGE: \n\t./my_hunter\n\n";
     char description[] = "DESCRIPTION:\n\tPress SPACE to start\n";
@@ -34,10 +34,10 @@ static void my_usage(int ac, char **av)
     write(1, failure, my_strlen(failure));
     write(1, quit, my_strlen(quit));
     write(1, fun, my_strlen(fun));
-    exit (0);
+    return (1);
 }
 
-static void my_null_env(void)
+static int my_null_env(void)
 {
     char error[] = "error\n";
     char try[] = "Nice try, but the program can't be ";
@@ -46,13 +46,14 @@ static void my_null_env(void)
     write(2, error, my_strlen(error));
     write(1, try, my_strlen(try));
     write(1, env, my_strlen(env));
-    exit(84);
+    return (84);
 }
 
-void check_args(int ac, char **av, char **env)
+int check_args(int ac, char **av, char **env)
 {
-    if (getenv("DISPLAY") == NULL)
-        my_null_env();
+    if (env[0] == NULL)
+        return (my_null_env());
     if (ac != 1)
-        my_usage(ac, av);
+        return (my_usage(ac, av));
+    return (0);
 }
