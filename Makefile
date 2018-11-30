@@ -5,7 +5,7 @@
 ## Makefile for My Hunter
 ##
 
-CC	=	gcc -g3
+CC	=	gcc
 
 RMF     =       rm -f
 
@@ -24,18 +24,32 @@ SRC	=	src/my_hunter.c	\
 
 MAIN	=	src/main.c
 
-CSFML	=	-l csfml-graphics -l csfml-system -l csfml-window -l csfml-audio
+TESTSRC	=	tests/test_my_hunter.c
 
 NAME	=	my_hunter
+
+CRIT	=	unit_tests
+
+CSFML	=	-l csfml-graphics -l csfml-system -l csfml-window -l csfml-audio
+
+CRITFLAGS	=	--coverage -lcriterion
+
+GCOVR	=	*.gc*
 
 all:	$(NAME)
 
 $(NAME):
 	$(CC) -o $(NAME) $(MAIN) $(SRC) $(CSFML) $(CFLAGS)
 
-clean:	;
+tests_run: re
+	 $(CC) -o $(CRIT) $(SRC) $(TESTSRC) $(CRITFLAGS) $(CSFML) $(CFLAGS)
+	 ./$(CRIT)
+
+clean:
+	$(RMF) $(GCOVR)
 
 fclean:	clean
 	$(RMF) $(NAME)
+	$(RMF) $(CRIT)
 
 re:	fclean all
