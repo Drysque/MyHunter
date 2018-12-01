@@ -10,7 +10,7 @@
 
 void switch_status(texture_t *tex, bird_mouv_t *b_mouv)
 {
-    switch(b_mouv->status) {
+    switch (b_mouv->status) {
     case 0: b_mouv->position.y = 0.0;
         b_mouv->bird_vect.y = 0.5;
         sfSprite_setPosition(tex->bird_spr, b_mouv->position);
