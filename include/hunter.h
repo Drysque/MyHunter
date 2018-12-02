@@ -17,9 +17,10 @@
 typedef struct texture_s
 {
     sfRenderWindow *window;
-    sfSprite *start_spr;
     sfTexture *back_tex;
     sfSprite *back_spr;
+    sfTexture *start_tex;
+    sfSprite *start_spr;
     sfTexture *over_tex;
     sfSprite *over_spr;
     sfTexture *bird_tex;
